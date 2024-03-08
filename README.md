@@ -1,37 +1,48 @@
-[![CI](https://github.com/nogibjj/python-ruff-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/python-ruff-template/actions/workflows/cicd.yml)
-## Template for Python projects with RUFF linter
+## Week 6: Logging and Monitoring
 
-![1 15_rust_built_python_tools](https://github.com/nogibjj/python-ruff-template/assets/58792/db5f7bda-a977-4c67-acbe-a70fe034fbdf)
+The intention of this week's mini-project was to add logging and tracing to a lambda function.
 
+To begin this week's project, I began with the application I created in week 5. This application is relatively simple: to add an item to a database, add /{##} to the prod url.
 
-
-1. First thing to do on launch is to open a new shell and verify virtualenv is sourced.
-
-Things included are:
-
-* `Makefile`
-
-* `Pytest`
-
-* `pandas`
-
-* `Ruff`:  
-
-Run `make lint` which runs `ruff check`.  You can find out more info on [Ruff here](https://github.com/astral-sh/ruff).
-
-* `Dockerfile`
-
-* `GitHub copilot`
-
-* `jupyter` and `ipython` 
-
-* A base set of libraries for devops and web
-
-* `githubactions`
-
-## References
-
-![1 1-function-essence-of-programming](https://github.com/nogibjj/python-ruff-template/assets/58792/f7f33cd3-cff5-4014-98ea-09b6a29c7557)
+See the following git repository for more information on the creation of the app.
 
 
+## Configurations
+First, I set up configurations on the lambda function.
 
+![image1](img/log1.png)
+![image2](img/setup1.png)
+
+Navigating to the configuration tab under the lambda function, we can see that the monitoring configurations are set up. 
+
+![image3](img/setup2.png)
+
+## Logging
+
+Navigating to cloudwatch -> log groups -> log group of interest, we can see that the logging for this lambda function is set up.   
+
+![image3](img/log2.png)
+
+Selecting the log stream of interest, we can see the logging of the different actions performed.
+
+![image3](img/log3.png)
+
+## Tracing with AWS X-Ray
+
+First, confirm that permissions are set. 
+
+![image4](img/xray1.png)
+
+AWS X-Ray produces traces. The following are screenshots from these traces.
+
+![image5](img/xray2.png)
+
+![image6](img/xray3.png)
+
+![image6](img/xray4.png)
+
+## Cloudwatch
+
+After connecting logging and AWS X-Ray to cloudwatch, I was able to produce a dashboard that outlines the logging and monitoring that I set up.
+
+![image7](img/Cloudwatch1.png)
